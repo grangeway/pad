@@ -29,6 +29,7 @@ function isProduction() {
 var SUPERDOMAINS = {
   'localbox.info': true,
   'localhost': true,
+  'piratepad.net': true,
   'etherpad.com': true
 };
 

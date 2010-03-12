@@ -268,8 +268,8 @@ function checkHost() {
     return;
   }
 
-  // redirect to etherpad.com
-  var newurl = "http://etherpad.com"+request.path;
+  // redirect
+  var newurl = "http://piratepad.net"+request.path;
   if (request.query) { newurl += "?"+request.query; }
   response.redirect(newurl);
 }
