@@ -11,7 +11,7 @@ distributed under the License is distributed on an "AS-IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. */ %>
-<% helpers.setHtmlTitle("EtherPad: "+pageTitle); %>
+<% helpers.setHtmlTitle("PiratePad: "+pageTitle); %>
 <% helpers.setBodyId("padbody") %>
 <% helpers.addBodyClass(bodyClass) %>
 <% helpers.includeCss("pad2_ejs.css") %>
@@ -79,7 +79,7 @@ limitations under the License. */ %>
     <% /* <a href="#" id="topbarfullwidth">Toggle Width</a> */ %>
     <% /* non-floated */ %>
     <div id="topbarcenter">
-      <a href="/" id="topbaretherpad">EtherPad</a>
+      <a href="/" id="topbaretherpad">PiratePad</a>
     </div>
 <% if (isProAccountHolder) { %>          
     <a id="backtoprosite" href="/ep/padlist/">Return to pad list</a>
@@ -291,11 +291,11 @@ limitations under the License. */ %>
             <h2 class="h2_userdup">Opened in another window.</h2>
             <h2 class="h2_unauth">No Authorization.</h2>
   	    <div id="disconnected_looping">
-	      <p><b>We're having trouble talking to the EtherPad synchronization server.</b>
+	      <p><b>We're having trouble talking to the PiratePad synchronization server.</b>
 		You may be connecting through an incompatible firewall or proxy server.</p>
 	    </div>
             <div id="disconnected_initsocketfail">
-              <p><b>We were unable to connect to the EtherPad synchronization server.</b>
+              <p><b>We were unable to connect to the PiratePad synchronization server.</b>
                 This may be due to an incompatibility with your web
                 browser or internet connection.</p>
             </div>
@@ -304,7 +304,7 @@ limitations under the License. */ %>
 		If you'd like to use this window instead, you can reconnect.</p>
 	    </div>
 	    <div id="disconnected_unknown">
-	      <p><b>Lost connection with the EtherPad synchronization
+	      <p><b>Lost connection with the PiratePad synchronization
 		  server.</b>  This may be due to a loss of network connectivity.</p>
 	    </div>
 	    <div id="disconnected_slowcommit">
