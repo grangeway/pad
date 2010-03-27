@@ -7,5 +7,5 @@ export SCALA="$SCALA_HOME/bin/scala"
 export JAVA="$JAVA_HOME/bin/java"
 export PATH="$JAVA_HOME/bin:$SCALA_HOME/bin:/usr/local/mysql/bin:$PATH"
 
-cd trunk/etherpad
+cd etherpad
 ./bin/run-local.sh > /dev/null &
