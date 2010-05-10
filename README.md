@@ -1,6 +1,8 @@
-# About Etherpad
-EtherPad is a web-based realtime collaborative document editor.
+This branch contains the piratepad.net styling and configuration of
+Etherpad.
 
-EtherPad currently lives at <http://etherpad.org>
+This branch contains no generic new functionality, it is basicly just
+tracking my master branch, with some added styling patches.
 
-For instructions to build and run EtherPad, see: <http://doc.etherpad.org/ep/tag/?query=installation>
+This branch should be running on beta.piratepad.net at any time, and
+is used to create release branches for piratepad.net

@@ -20,9 +20,9 @@ body.squish2width #padpage { width: 700px; }
   position: relative; }
 
 #topbarleft { float: left; height: 100%; overflow: hidden;
-  background: url(/static/img/jun09/pad/padtop5.gif) no-repeat left top; width: 5px; }
+  background: url(/static/img/jun09/pad/padtop5.gif) no-repeat left top; width: 150px; }
 #topbarright { float: right; height: 100%; overflow: hidden;
-  background: url(/static/img/jun09/pad/padtop5.gif) no-repeat right top; width: 5px; }
+  background: url(/static/img/jun09/pad/padtop5.gif) no-repeat right top; width: 150px; }
 
 .propad #topbar { background: #2c2c2c url(/static/img/jun09/pad/protop.gif) repeat-x 0 -25px; }
 .propad #topbarleft { background: url(/static/img/jun09/pad/protop.gif) no-repeat left top; }

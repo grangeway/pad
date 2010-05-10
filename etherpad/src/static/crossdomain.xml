@@ -7,4 +7,6 @@
 <allow-access-from domain="tokbox.com" to-ports="*"/>
 <allow-access-from domain="*.etherpad.com" to-ports="*"/>
 <allow-access-from domain="etherpad.com" to-ports="*"/>
+<allow-access-from domain="*.piratepad.net" to-ports="*"/>
+<allow-access-from domain="piratepad.net" to-ports="*"/>
 </cross-domain-policy>

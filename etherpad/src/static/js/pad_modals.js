@@ -174,12 +174,12 @@ var padmodals = (function() {
       });
     },
     getDefaultShareBoxMessageForName: function(name) {
-      return (name || "Somebody")+" has shared an EtherPad document with you."+
+      return (name || "Somebody")+" has shared an PiratePad document with you."+
         "\n\n"+"View it here:\n\n"+
         padutils.escapeHtml($("#sharebox-url").val()+"\n");
     },
     getDefaultShareBoxSubjectForName: function(name) {
-      return (name || "Somebody")+" invited you to an EtherPad document";
+      return (name || "Somebody")+" invited you to an PiratePad document";
     },
     relayoutWithBottom: function(px) {
       $("#modaloverlay").height(px);

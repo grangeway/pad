@@ -276,7 +276,7 @@ function checkHost() {
   }
 
   // redirect to main site
-  var newurl = "http://etherpad.com"+request.path;
+  var newurl = "http://piratepad.net"+request.path;
   if (request.query) { newurl += "?"+request.query; }
   response.redirect(newurl);
 }
