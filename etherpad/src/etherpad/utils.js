@@ -67,7 +67,7 @@ function findExistsingFile(files) {
   }
 }
 
-function findThemeFile(filename, pluginList) {
+function findThemeFile(filename, prefix, pluginList) {
   var files = [];
   var theme = appjet.config.theme;
   if (   request.params._theme != undefined
@@ -77,19 +77,19 @@ function findThemeFile(filename, pluginList) {
   if (pluginList != undefined)
     pluginList.forEach(function (plugin) {
       if (plugin != undefined) {
-	files.push('/themes/' + theme + '/plugins/' + plugin + '/' + filename);
-	files.push('/themes/default/plugins/' + plugin + '/' + filename);
-	files.push('/plugins/' + plugin + '/' + filename);
+	files.push('/plugins/theme_' + theme + '/' + prefix + '/plugins/' + plugin + '/' + filename);
+	files.push('/plugins/theme_default/' + prefix + '/plugins/' + plugin + '/' + filename);
+	files.push('/plugins/' + plugin + '/' + prefix + '/' + filename);
       }
     });
-  files.push('/themes/' + theme + '/' + filename);
-  files.push('/themes/default/' + filename);
+  files.push('/plugins/theme_' + theme + '/' + prefix + '/' + filename);
+  files.push('/plugins/theme_default/' + prefix + '/' + filename);
 
   return findExistsingFile(files);
 }
 
 function findTemplate(filename, pluginList) {
- return findThemeFile('templates/' + filename, pluginList);
+ return findThemeFile(filename, 'templates', pluginList);
 }
 
 function Template(params, pluginList) {
