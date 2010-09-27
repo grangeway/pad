@@ -213,10 +213,10 @@ PluginRegistry.prototype.registerClientHandlerJS = function () {
       throw new Error("plugin " + pluginName + " doesn't seem to be a plugin module");
 
     if (plugin.client !== undefined) {
-      helpers.includeJs("plugins/" + pluginName + "/main.js");
+     helpers.includeJs("main.js", [pluginName]);
       if (plugin.client.modules != undefined)
         for (j = 0; j < client.modules.length; j++)
-          helpers.includeJs("plugins/" + pluginName + "/" + plugin.client.modules[j] + ".js");
+	  helpers.includeJs(plugin.client.modules[j] + ".js", [pluginName]);
     }
   }
   helpers.addClientVars({hooks:this.clientHooks});

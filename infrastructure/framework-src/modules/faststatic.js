@@ -104,21 +104,17 @@ function _getMTime(f) {
   }
 }
 
-function manglePluginPath(localFile, fileType) {
-  var prefix = '/static/' + fileType + '/plugins/';
+/* /static/plugins/PLUGIN/path =>
+ * /plugins/PLUGIN/static
+ */
+function manglePluginPaths(localFile) {
+  var prefix = '/static/plugins/';
   if (localFile.substring(0, prefix.length) != prefix)
     return localFile;
   var suffix = localFile.substring(prefix.length);
   var plugin = suffix.split('/', 1)[0];
   suffix = suffix.substring(plugin.length + 1);
-  return '/plugins/' + plugin + '/static/' + fileType + '/' + suffix;
-}
-
-function manglePluginPaths(localFile) {
-  for (fmt in {'js':0, 'css':0, 'swf':0, 'html':0, 'img':0, 'zip':0}) { 
-    localFile = manglePluginPath(localFile, fmt);
-  }
-  return localFile;
+  return '/plugins/' + plugin + '/static/' + suffix;
 }
 
 function _wrapFile(localFile) {

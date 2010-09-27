@@ -1,8 +1,8 @@
 <%
 	helpers.includeJs("jquery-1.3.2.js");
-	helpers.includeJs("plugins/padHierarchy/padAdmin.js");
-	helpers.includeJs("plugins/padHierarchy/jquerycssmenu.js");
-	helpers.includeCss("plugins/padHierarchy/ubuntu.css");
+	helpers.includeJs("padAdmin.js", ['padHierarchy']);
+	helpers.includeJs("jquerycssmenu.js", ['padHierarchy']);
+	helpers.includeCss("ubuntu.css", ['padHierarchy']);
 	helpers.setHtmlTitle(selected_pad.id);
 %>
 <% template.define('body', function() { var ejs_data=''; %>

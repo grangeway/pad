@@ -15,7 +15,7 @@ function wikiStyleLinksInit() {
 /* All this iframe stuff is obviously client-side. */
 
 function aceInitInnerdocbodyHead(args) {
-  args.iframeHTML.push('\'<link rel="stylesheet" type="text/css" href="/static/css/plugins/wikiStyleLinks/pad.css"/>\'');
+  args.iframeHTML.push('\'<link rel="stylesheet" type="text/css" href="/static/plugins/wikiStyleLinks/css/pad.css"/>\'');
 }
 
 /* aceGetFilterStack will run both server- and client-side.

@@ -29,11 +29,11 @@ limitations under the License. */ %>
 
  template.inherit('page.ejs');
  helpers.includeJQuery();
- helpers.includeJs('plugins/realTimeRecentChanges/rtrc.js');
+ helpers.includeJs('rtrc.js', ['realTimeRecentChanges']);
 
  helpers.setHtmlTitle("EtherPad: Tag search updating in real time");
- helpers.includeCss("plugins/twitterStyleTags/tagBrowser.css");
- helpers.includeCss("plugins/twitterStyleTags/pad.css");
+ helpers.includeCss("tagBrowser.css", ['twitterStyleTags']);
+ helpers.includeCss("pad.css", ['twitterStyleTags']);
 
 %>
 

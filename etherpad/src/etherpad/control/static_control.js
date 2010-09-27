@@ -35,11 +35,8 @@ function onRequest() {
     ['/crossdomain.xml', faststatic.singleFileServer(staticBase + '/crossdomain.xml', opts)],
     [PrefixMatcher('/static/compressed/'), serveCompressed]])
 
-  for (fmt in {'js':0, 'css':0, 'swf':0, 'html':0, 'img':0, 'zip':0}) {
-    for (plugin in plugins.loadPlugins().plugins) {
-      disp.addLocations([[PrefixMatcher('/static/'+fmt+'/plugins/'+plugin+'/'), faststatic.directoryServer('/plugins/' + plugin + '/static/'+fmt+'/', opts)]]);
-    }
-    disp.addLocations([[PrefixMatcher('/static/'+fmt+'/'), faststatic.directoryServer(staticBase+'/'+fmt+'/', opts)]]);
+  for (plugin in plugins.loadPlugins().plugins) {
+    disp.addLocations([[PrefixMatcher('/static/plugins/'+plugin+'/'), faststatic.directoryServer('/plugins/' + plugin + '/static/', opts)]]);
   }
   disp.addLocations([[PrefixMatcher('/static/'), faststatic.directoryServer(staticBase, opts)]]);
 

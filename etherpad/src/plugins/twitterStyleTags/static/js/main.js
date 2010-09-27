@@ -3,7 +3,7 @@ function twitterStyleTagsInit() {
 }
 
 twitterStyleTagsInit.prototype.aceInitInnerdocbodyHead = function(args) {
-  args.iframeHTML.push('\'<link rel="stylesheet" type="text/css" href="/static/css/plugins/twitterStyleTags/pad.css"/>\'');
+  args.iframeHTML.push('\'<link rel="stylesheet" type="text/css" href="/static/plugins/twitterStyleTags/css/pad.css"/>\'');
 }
 
 twitterStyleTagsInit.prototype.aceGetFilterStack = function(args) {

@@ -18,8 +18,8 @@ limitations under the License. */ %>
  helpers.includeJQuery();
  helpers.includeCometJs();
 
- helpers.includeJs('plugins/fileUpload/ajaxupload.js');
- helpers.includeJs('plugins/fileUpload/fileUpload.js');
+ helpers.includeJs('ajaxupload.js', ['fileUpload']);
+ helpers.includeJs('fileUpload.js', ['fileUpload']);
 %>
 
 <html>
