@@ -106,6 +106,8 @@ function _getMTime(f) {
 
 /* /static/plugins/PLUGIN/path =>
  * /plugins/PLUGIN/static
+ * Same as etherpad/src/etherpad/control/static_control.js:onRequest but for production env
+ * Compare etherpad/src/etherpad/helpers.js:findStaticFile
  */
 function manglePluginPaths(localFile) {
   var prefix = '/static/plugins/';

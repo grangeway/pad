@@ -94,12 +94,24 @@ function setBodyId(id) {
   _hd().bodyId = id;
 }
 
+/* Compare infrastructure/framework-src/modules/faststatic.js:manglePluginPaths */
+function findStaticFile(filename, pluginList) {
+  var localFile = findThemeFile(filename, 'static', pluginList);
+  var prefix = '/plugins/';
+  if (localFile.substring(0, prefix.length) != prefix)
+    return localFile;
+  var suffix = localFile.substring(prefix.length);
+  var plugin = suffix.split('/', 1)[0];
+  suffix = suffix.substring(plugin.length + 1);
+  return '/static/plugins/' + plugin + '/' + suffix;
+}
+
 function includeJs(relpath, plugins) {
   relpath = 'js/' + relpath;
   if (plugins != undefined) {
    relpath = 'plugins/'+plugins[0]+'/' + relpath;
   }
-  _hd().jsIncludes.add(relpath);
+  _hd().jsIncludes.add('static/' + relpath);
 }
 
 function includeJQuery() {
@@ -177,7 +189,7 @@ function jsIncludes() {
       });
     }
     if (jsincludes.length < 1) { return ''; }
-    var key = faststatic.getCompressedFilesKey('js', '/static', jsincludes);
+    var key = faststatic.getCompressedFilesKey('js', '', jsincludes);
     return '<script type="text/javascript" src="/static/compressed/'+key+'"></script>';
   } else {
     var ts = +(new Date);
@@ -186,7 +198,7 @@ function jsIncludes() {
       r.push('<script type="text/javascript" src="'+COMETPATH+'/js/client.js?'+ts+'"></script>');
     }
     _hd().jsIncludes.asArray().forEach(function(relpath) {
-      r.push('<script type="text/javascript" src="/static/'+relpath+'?'+ts+'"></script>');
+      r.push('<script type="text/javascript" src="/'+relpath+'?'+ts+'"></script>');
     });
     return r.join('\n');
   }

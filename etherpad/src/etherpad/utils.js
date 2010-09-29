@@ -59,6 +59,7 @@ function randomUniquePadId() {
 // template rendering
 //----------------------------------------------------------------
 
+/* FIXME: cache the result here? */
 function findExistsingFile(files) {
   for (var i = 0; i < files.length; i++) {
     var f = new File('./src' + files[i]);
