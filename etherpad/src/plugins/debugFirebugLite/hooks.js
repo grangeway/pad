@@ -5,5 +5,5 @@ import("etherpad.globals.*");
 import("etherpad.helpers");
 
 function handlePath(arg) {
-  helpers.addToHead("<script src='/static/js/plugins/debugFirebugLite/firebug-lite.js'></script>");
+  helpers.addToHead("<script src='/static/plugins/debugFirebugLite/js/firebug-lite.js'></script>");
 }

@@ -5,8 +5,8 @@ import("etherpad.globals.*");
 import("etherpad.helpers");
 
 function handlePath(arg) {
-  helpers.includeCss('plugins/debugJsBacktrace/javascript-stacktrace/qunit.css');
-  helpers.includeJs('plugins/debugJsBacktrace/javascript-stacktrace/qunit.js');
-  helpers.includeJs('plugins/debugJsBacktrace/javascript-stacktrace/stacktrace.js');
-  helpers.includeJs('plugins/debugJsBacktrace/load.js');
+ helpers.includeCss('javascript-stacktrace/qunit.css', ["debugJsBacktrace"]);
+  helpers.includeJs('javascript-stacktrace/qunit.js', ["debugJsBacktrace"]);
+  helpers.includeJs('javascript-stacktrace/stacktrace.js', ["debugJsBacktrace"]);
+  helpers.includeJs('load.js', ["debugJsBacktrace"]);
 }
