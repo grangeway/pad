@@ -1,8 +1,8 @@
-<% helpers.includeCss("plugins/licenseTag/licenseTag.css"); %>
+<% helpers.includeCss("licenseTag.css", ['licenseTag']); %>
 <td>&nbsp;&nbsp;</td>
 <td><img src="/static/img/jun09/pad/editbar_groupleft.gif" width="2" height="24"></td>
 <td id="editbarattach-outer" class="editbarbutton editbargroupsfirst">
-  <a href="javascript:void(0)" title="Select license" onclick="licenseTag.licenseTagClicked();"><img src="/static/html/plugins/licenseTag/editbar_licensetag.gif"></a>
+  <a href="javascript:void(0)" title="Select license" onclick="licenseTag.licenseTagClicked();"><img src="/static/plugins/licenseTag/html/editbar_licensetag.gif"></a>
   <div id="licenseTag-license-selector">
     <ul>
      <li><a href="javascript:void(0)" onclick="licenseTag.licenseTagSelectLicenseClicked('BSD');">(Modified) BSD License</a> &nbsp; <a href="http://www.freebsd.org/copyright/freebsd-license.html">?</a></li>
