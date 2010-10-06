@@ -126,11 +126,11 @@ PluginRegistry.prototype.loadInstalledHooks = function () {
    ' plugin_hook.original_name as original ' +
    'from ' +
    ' plugin ' +
-   ' left outer join plugin_hook on ' +
+   ' join plugin_hook on ' +
    '  plugin.id = plugin_hook.plugin_id ' +
-   ' left outer join hook on ' +
+   ' join hook on ' +
    '  plugin_hook.hook_id = hook.id ' +
-   ' left outer join hook_type on ' +
+   ' join hook_type on ' +
    '  hook.type_id = hook_type.id ' +
    'order by hook.name, plugin.name';
 
@@ -148,6 +148,8 @@ PluginRegistry.prototype.loadInstalledHooks = function () {
       hookSet = this.hooks;
     else if (row.type == 'client')
       hookSet = this.clientHooks;
+    else
+      throw new Error("Unknown hook type " + row.type + " for hook " +  row.hook + " for plugin " + row.plugin)
 
     if (hookSet[row.hook] == undefined)
       hookSet[row.hook] = [];
