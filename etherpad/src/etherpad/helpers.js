@@ -23,7 +23,7 @@ import("funhtml.META");
 import("etherpad.globals.*");
 import("etherpad.debug.dmesg");
 
-import("etherpad.utils");
+import("etherpad.utils.*");
 import("etherpad.pro.pro_utils");
 
 jimport("java.lang.System.out.println");
@@ -102,16 +102,12 @@ function findStaticFile(filename, pluginList) {
     return localFile;
   var suffix = localFile.substring(prefix.length);
   var plugin = suffix.split('/', 1)[0];
-  suffix = suffix.substring(plugin.length + 1);
-  return '/static/plugins/' + plugin + '/' + suffix;
+  suffix = suffix.substring(plugin.length + '/static'.length);
+  return '/static/plugins/' + plugin + suffix;
 }
 
 function includeJs(relpath, plugins) {
-  relpath = 'js/' + relpath;
-  if (plugins != undefined) {
-   relpath = 'plugins/'+plugins[0]+'/' + relpath;
-  }
-  _hd().jsIncludes.add('static/' + relpath);
+  _hd().jsIncludes.add(findStaticFile('js/' + relpath, plugins));
 }
 
 function includeJQuery() {
@@ -119,11 +115,7 @@ function includeJQuery() {
 }
 
 function includeCss(relpath, plugins) {
-  relpath = 'css/' + relpath;
-  if (plugins != undefined) {
-   relpath = 'plugins/'+plugins[0]+'/' + relpath;
-  }
-  _hd().cssIncludes.add(relpath);
+  _hd().cssIncludes.add(findStaticFile('css/' + relpath, plugins));
 }
 
 function includeCometJs() {
@@ -198,7 +190,7 @@ function jsIncludes() {
       r.push('<script type="text/javascript" src="'+COMETPATH+'/js/client.js?'+ts+'"></script>');
     }
     _hd().jsIncludes.asArray().forEach(function(relpath) {
-      r.push('<script type="text/javascript" src="/'+relpath+'?'+ts+'"></script>');
+      r.push('<script type="text/javascript" src="'+relpath+'?'+ts+'"></script>');
     });
     return r.join('\n');
   }
@@ -206,13 +198,13 @@ function jsIncludes() {
 
 function cssIncludes() {
   if (isProduction()) {
-    var key = faststatic.getCompressedFilesKey('css', '/static', _hd().cssIncludes.asArray());
+    var key = faststatic.getCompressedFilesKey('css', '', _hd().cssIncludes.asArray());
     return '<link href="/static/compressed/'+key+'" rel="stylesheet" type="text/css" />';
   } else {
     var ts = +(new Date);
     var r = [];
     _hd().cssIncludes.asArray().forEach(function(relpath) {
-      r.push('<link href="/static/'+relpath+'?'+ts+'" rel="stylesheet" type="text/css" />');
+      r.push('<link href="'+relpath+'?'+ts+'" rel="stylesheet" type="text/css" />');
     });
     return r.join('\n');
   }

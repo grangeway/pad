@@ -86,7 +86,10 @@ function findThemeFile(filename, prefix, pluginList) {
   files.push('/plugins/theme_' + theme + '/' + prefix + '/' + filename);
   files.push('/plugins/theme_default/' + prefix + '/' + filename);
 
-  return findExistsingFile(files);
+  var res = findExistsingFile(files);
+  if (res == undefined)
+    throw new Error("Unable to find theme file '" + filename + "' in '" + prefix + "' among " + pluginList);
+  return res;
 }
 
 function findTemplate(filename, pluginList) {
