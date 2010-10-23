@@ -1,0 +1,26 @@
+<job>
+<script language="JScript" src="build.js" />
+<script language="JScript">
+	WshShell.CurrentDirectory = ETHERPADDIR + "\\infrastructure";
+</script>
+<script language="JScript" src="..\\infrastructure\\bin\\makejar.js" />
+<script language="JScript">
+STDOUT.WriteLine("compiling...");
+</script>
+<script language="JScript" src="..\\infrastructure\\bin\\classpath.js" />
+<script language="JScript" src="..\\infrastructure\\bin\\comp.js" />
+<script language="JScript">
+STDOUT.WriteLine("copying cached JAR...");
+//cp ../buildcache/JAR/appjet.jar ./
+
+STDOUT.WriteLine("making JAR...");
+//mv appjet.jar /tmp/appjet.jar
+//$JAR -uf /tmp/appjet.jar . #META-INF com javax org net uk v scala dojox
+//mv /tmp/appjet.jar ./
+
+STDOUT.WriteLine("cleaning up...");
+//rm -rf $TMPSTORE
+
+STDOUT.WriteLine("done.");
+</script>
+</job>
